@@ -1,1 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pamphlets • Langcos</title>
+  <meta name="description" content="Pamphlets — concise, rigorous guides to undergraduate math and physics." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Langcos home">
+          <div class="logo-mark" aria-hidden="true">LC</div>
+          <div>Langcos</div>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a class="active" href="pamphlets.html">Pamphlets</a>
+          <a href="about.html">About</a>
+          <a href="classes.html">Classes</a>
+        </nav>
+
+        <button class="menu-btn" type="button" data-menu-btn aria-expanded="false" aria-controls="mobile-nav">
+          Menu
+        </button>
+      </div>
+
+      <div id="mobile-nav" class="mobile-nav" data-mobile-nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="pamphlets.html">Pamphlets</a>
+        <a href="about.html">About</a>
+        <a href="classes.html">Classes</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="pagehead">
+      <h1>Pamphlets</h1>
+      <p class="lead" style="max-width:70ch;">
+        Concise guides to key topics in undergraduate math and physics. Delivered by email.
+      </p>
+      <hr class="sep" />
+    </section>
+
+    <section>
+      <h2>Library</h2>
+      <p class="muted">Replace titles/levels later. Buttons currently jump to the signup area.</p>
+
+      <div class="grid">
+        <!-- Duplicate these cards as needed -->
+        <div class="card">
+          <div>
+            <h3>Title 1</h3>
+            <div class="meta">Level: Intro</div>
+          </div>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#signup">Email me the PDF</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Title 2</h3>
+            <div class="meta">Level: Intermediate</div>
+          </div>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#signup">Email me the PDF</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Title 3</h3>
+            <div class="meta">Level: Intermediate</div>
+          </div>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#signup">Email me the PDF</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Title 4</h3>
+            <div class="meta">Level: Upper-undergrad</div>
+          </div>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#signup">Email me the PDF</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Title 5</h3>
+            <div class="meta">Level: Upper-undergrad</div>
+          </div>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#signup">Email me the PDF</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Title 6</h3>
+            <div class="meta">Level: Intermediate</div>
+          </div>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#signup">Email me the PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="box" id="signup">
+        <label for="email">Get updates + pamphlet downloads by email</label>
+
+        <!-- Replace with MailerLite form embed later -->
+        <div class="row">
+          <input id="email" type="email" placeholder="you@email.com" />
+          <button class="btn primary" type="button" onclick="alert('Test only. Replace with your email form embed.')">
+            Subscribe
+          </button>
+        </div>
+
+        <div class="small" style="margin-top:10px;">
+          Tip: later you can create tags/segments (Math / Physics / Exam Review) and link different forms from different buttons.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <div class="logo-mark" aria-hidden="true">LC</div>
+        <div style="font-weight:800;">Langcos</div>
+      </div>
+      <div>© Langcos — “The language of the cosmos.”</div>
+      <div>Contact: your-email@example.com</div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
