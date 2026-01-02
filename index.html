@@ -5,285 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Langcos</title>
   <meta name="description" content="Concise, rigorous guides to undergraduate math and physics." />
-  <style>
-    :root{
-      --bg: #fbfaf7;
-      --card: #ffffff;
-      --text: #141414;
-      --muted: #5a5a5a;
-      --border: rgba(0,0,0,0.10);
-      --accent: #6b4f3a; /* muted brown */
-      --shadow: 0 10px 25px rgba(0,0,0,0.06);
-      --radius: 14px;
-      --max: 1100px;
-    }
-
-    *{ box-sizing: border-box; }
-    html,body{ height: 100%; }
-    body{
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    a{ color: inherit; text-decoration: none; }
-    a:hover{ text-decoration: underline; }
-
-    .container{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    .header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(251,250,247,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      gap: 16px;
-    }
-    .brand{
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .nav{
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* Hero */
-    .hero{
-      padding: 56px 0 26px;
-    }
-    .hero-grid{
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 24px;
-      align-items: start;
-    }
-    h1{
-      margin: 0 0 10px;
-      font-size: 44px;
-      line-height: 1.1;
-      letter-spacing: -0.6px;
-    }
-    .lead{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 62ch;
-    }
-
-    .cta-row{
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: var(--shadow);
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .btn.primary{
-      background: var(--accent);
-      color: #fff;
-      border-color: rgba(0,0,0,0.0);
-    }
-    .hint{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .signup{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px;
-    }
-    .signup label{
-      display: block;
-      font-weight: 700;
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
-    .signup .row{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    input[type="email"]{
-      flex: 1;
-      min-width: 220px;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      font-size: 14px;
-      background: #fff;
-    }
-
-    /* Sections */
-    section{
-      padding: 26px 0;
-    }
-    h2{
-      margin: 0 0 10px;
-      font-size: 22px;
-      letter-spacing: -0.2px;
-    }
-    .muted{ color: var(--muted); }
-
-    .bullets{
-      display: grid;
-      gap: 8px;
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    /* Cards */
-    .grid{
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 14px;
-    }
-    .card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-height: 180px;
-    }
-    .card h3{
-      margin: 0;
-      font-size: 16px;
-      letter-spacing: -0.2px;
-    }
-    .meta{
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .card p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .card .spacer{ flex: 1; }
-
-    /* Video placeholder */
-    .video{
-      background: #fff;
-      border: 1px dashed rgba(0,0,0,0.25);
-      border-radius: var(--radius);
-      padding: 18px;
-      color: var(--muted);
-    }
-
-    /* CTA band */
-    .band{
-      margin-top: 14px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    /* Footer */
-    footer{
-      padding: 34px 0 48px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      h1{ font-size: 38px; }
-      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 600px){
-      h1{ font-size: 32px; }
-      .lead{ font-size: 16px; }
-      .grid{ grid-template-columns: 1fr; }
-      .nav{ gap: 12px; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <header class="header">
-    <div class="container header-inner">
-      <div class="brand">Langcos</div>
-      <nav class="nav">
-        <a href="#pamphlets">Pamphlets</a>
-        <a href="#about">About</a>
-        <a href="#classes">Classes</a>
-      </nav>
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Langcos home">
+          <!-- LOGO PLACEHOLDER: replace this block with your real logo image later -->
+          <div class="logo-mark" aria-hidden="true">LC</div>
+          <div>Langcos</div>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="active" href="index.html">Home</a>
+          <a href="pamphlets.html">Pamphlets</a>
+          <a href="about.html">About</a>
+          <a href="classes.html">Classes</a>
+        </nav>
+
+        <button class="menu-btn" type="button" data-menu-btn aria-expanded="false" aria-controls="mobile-nav">
+          Menu
+        </button>
+      </div>
+
+      <div id="mobile-nav" class="mobile-nav" data-mobile-nav>
+        <a class="active" href="index.html">Home</a>
+        <a href="pamphlets.html">Pamphlets</a>
+        <a href="about.html">About</a>
+        <a href="classes.html">Classes</a>
+      </div>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div class="hero-grid">
+      <div class="kicker">The language of learning • The language of the cosmos</div>
+
+      <div class="hero-grid" style="margin-top:14px;">
         <div>
           <h1>Clear, rigorous math & physics.</h1>
           <p class="lead">
-            Concise guides to undergraduate topics — designed to build real intuition and problem-solving skill.
-            Delivered by email.
+            Langcos publishes concise study guides for undergraduate math and physics—designed to build real intuition and
+            problem-solving skill. Delivered by email.
           </p>
 
           <div class="cta-row">
             <a class="btn primary" href="#signup">Get a free pamphlet</a>
-            <a class="btn" href="#pamphlets">Browse topics</a>
+            <a class="btn" href="pamphlets.html">Browse topics</a>
           </div>
-          <div class="hint">Low frequency. Unsubscribe anytime.</div>
+          <div class="small" style="margin-top:10px;">Low frequency. Unsubscribe anytime.</div>
         </div>
 
-        <div class="signup" id="signup">
+        <div class="box" id="signup">
           <label for="email">Get a free pamphlet by email</label>
+
+          <!-- TEST INPUT: replace this entire box with your MailerLite embed later -->
           <div class="row">
-            <!-- For the test, this does nothing. Later we replace with MailerLite/ConvertKit embed. -->
             <input id="email" type="email" placeholder="you@email.com" />
-            <button class="btn primary" type="button" onclick="alert('Test only: later this becomes your email form embed.')">
+            <button class="btn primary" type="button" onclick="alert('Test only. Replace with your email form embed.')">
               Send
             </button>
           </div>
-          <div class="hint">In v1, we’ll swap this with your email-provider form.</div>
+
+          <div class="small" style="margin-top:10px;">
+            Next step: we’ll swap this with your email-provider form so PDFs are delivered automatically.
+          </div>
         </div>
       </div>
     </section>
@@ -298,39 +86,48 @@
       </ul>
     </section>
 
-    <section id="pamphlets">
+    <section>
       <h2>Featured pamphlets</h2>
-      <p class="muted">Instant delivery by email (once forms are connected).</p>
+      <p class="muted">Click any title to see the full list. “Email me the PDF” will connect to your form.</p>
 
       <div class="grid">
         <div class="card">
           <div>
-            <h3>Linear Algebra: Eigenvalues & Diagonalization</h3>
-            <div class="meta">Level: Intermediate / Upper-undergrad</div>
+            <h3>Title 1</h3>
+            <div class="meta">Level: Intermediate</div>
           </div>
-          <p>Build intuition for eigenvectors, diagonalization, and the core course problem types.</p>
+          <p>Short description goes here. Replace later.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <div class="row">
+            <a class="btn" href="#signup">Email me the PDF</a>
+            <a class="btn linkish" href="pamphlets.html">View all →</a>
+          </div>
         </div>
 
         <div class="card">
           <div>
-            <h3>Classical Mechanics: Lagrangians in Practice</h3>
+            <h3>Title 2</h3>
             <div class="meta">Level: Intermediate</div>
           </div>
-          <p>Set up Lagrangians quickly and solve the most common constrained-motion problems.</p>
+          <p>Short description goes here. Replace later.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <div class="row">
+            <a class="btn" href="#signup">Email me the PDF</a>
+            <a class="btn linkish" href="pamphlets.html">View all →</a>
+          </div>
         </div>
 
         <div class="card">
           <div>
-            <h3>E&amp;M Foundations: Vector Calculus for Fields</h3>
+            <h3>Title 3</h3>
             <div class="meta">Level: Intermediate</div>
           </div>
-          <p>A fast bridge between vector calculus identities and physical field intuition.</p>
+          <p>Short description goes here. Replace later.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <div class="row">
+            <a class="btn" href="#signup">Email me the PDF</a>
+            <a class="btn linkish" href="pamphlets.html">View all →</a>
+          </div>
         </div>
       </div>
     </section>
@@ -338,12 +135,13 @@
     <section>
       <h2>A short introduction</h2>
       <p class="muted">
-        Langcos is a growing library of carefully designed study guides — and soon, small-group classes for deeper mastery.
+        Langcos blends two obsessions: learning languages and learning the universe. The goal is simple—make hard material
+        feel organized, approachable, and honest.
       </p>
-      <div class="video">(Video placeholder — later we embed YouTube/Vimeo here.)</div>
+      <div class="video">(Video placeholder — later embed YouTube/Vimeo here.)</div>
     </section>
 
-    <section id="classes">
+    <section>
       <h2>Classes (coming soon)</h2>
       <p class="muted">
         Small-group sessions built around problem-solving and real understanding. You’ll see sample clips before enrolling.
@@ -351,31 +149,32 @@
 
       <div class="band">
         <div>
-          <div style="font-weight:700;">Join the class waitlist</div>
-          <div class="muted" style="font-size:13px;">Get schedules, pricing, and a short clip before signup opens.</div>
+          <div style="font-weight:800;">Join the class waitlist</div>
+          <div class="small">Get schedules, pricing, and a short clip before signup opens.</div>
         </div>
-        <a class="btn primary" href="#signup">Join waitlist</a>
+        <a class="btn primary" href="classes.html">Go to Classes</a>
       </div>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p class="muted">
-        Langcos is built around clarity, structure, and honest explanations — compact guides that focus on the ideas that
-        actually unlock problems.
-      </p>
-      <ul class="bullets">
-        <li><strong>Structure beats speed:</strong> a good map is better than more content</li>
-        <li><strong>Examples are the proof:</strong> learn the pattern, then generalize</li>
-        <li><strong>Pitfalls matter:</strong> most errors come from a small set of common confusions</li>
-      </ul>
+    <section>
+      <h2>FAQ</h2>
+      <p><strong>Are the pamphlets free?</strong><br><span class="muted">Some will be free releases. Over time, I’ll also offer paid bundles and classes.</span></p>
+      <p><strong>Why email delivery?</strong><br><span class="muted">It keeps distribution simple and lets me notify you when updated versions are released.</span></p>
+      <p><strong>How often will you email?</strong><br><span class="muted">Low frequency — mostly new pamphlets, occasional study notes, and class announcements.</span></p>
+      <p><strong>Who is this for?</strong><br><span class="muted">Undergraduates in math/physics (and motivated self-learners). Each pamphlet lists prerequisites.</span></p>
     </section>
 
     <footer>
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <div class="logo-mark" aria-hidden="true">LC</div>
+        <div style="font-weight:800;">Langcos</div>
+      </div>
       <div>© Langcos — “The language of the cosmos.”</div>
       <div>Contact: your-email@example.com</div>
       <div>You can unsubscribe anytime.</div>
     </footer>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
