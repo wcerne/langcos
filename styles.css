@@ -531,9 +531,9 @@ footer{
 }
 
 .aboutme-photo{
-  width: 160px;     /* smaller */
-  height: 160px;    /* smaller */
-  border-radius: 12px;
+  width: 250px;     /* smaller */
+  height: 250px;    /* smaller */
+  border-radius: 30px;
   object-fit: cover;
   border: 1px solid var(--border);
   flex: 0 0 auto;
