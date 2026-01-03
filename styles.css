@@ -54,8 +54,10 @@ a:hover{ text-decoration: underline; }
   letter-spacing: 0.2px;
 }
 .logo-img{
-  width: 28px;
-  height: 28px;
+  width: 28px !important;
+  height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
   display: block;
   object-fit: contain;
 }
