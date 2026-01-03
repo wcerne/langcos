@@ -462,32 +462,32 @@ footer{
 .mission-row{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:24px;
+  gap:16px;              /* space between text and logo */
+  max-width:80ch;
 }
 
 .mission-row p{
   margin:0;
+  flex:1 1 auto;         /* text takes remaining space */
 }
 
-/* Big “full image” size */
+/* Medium-sized logo */
 .mission-logo{
-  width: min(320px, 40vw);
-  height: auto;
-  max-height: 320px;
-  object-fit: contain;
-  flex: 0 0 auto;
+  width:96px;
+  height:96px;
+  object-fit:contain;
+  flex:0 0 auto;
 }
 
-/* Mobile: stack and keep it large */
+/* Mobile: stack and slightly smaller */
 @media (max-width: 600px){
   .mission-row{
     flex-direction:column;
     align-items:flex-start;
   }
   .mission-logo{
-    width: min(260px, 85vw);
-    max-height: 260px;
+    width:72px;
+    height:72px;
   }
 }
 
