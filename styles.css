@@ -545,8 +545,8 @@ footer{
     flex-direction: column;
   }
   .aboutme-photo{
-    width: 140px;
-    height: 140px;
+    width: 250px;
+    height: 250px;
   }
 }
 
