@@ -489,8 +489,8 @@ footer{
 
 /* Logo lives on the far right */
 .mission-logo{
-  width: 96px;
-  height: 96px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   flex: 0 0 auto;
 }
