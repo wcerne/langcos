@@ -459,36 +459,35 @@ footer{
 #mlb2-35270909 .ml-mobileButton-horizontal {
   display: none !important;
 }
-/* Mission row: text + logo */
 .mission-row{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
 }
 
 .mission-row p{
-  margin: 0;
+  margin:0;
 }
 
-/* Big logo */
-.about-logo{
-  width: 120px;
-  height: 120px;
+/* Big “full image” size */
+.mission-logo{
+  width: min(320px, 40vw);
+  height: auto;
+  max-height: 320px;
   object-fit: contain;
   flex: 0 0 auto;
 }
 
-/* Mobile: stack nicely */
+/* Mobile: stack and keep it large */
 @media (max-width: 600px){
   .mission-row{
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction:column;
+    align-items:flex-start;
   }
-
-  .about-logo{
-    width: 90px;
-    height: 90px;
+  .mission-logo{
+    width: min(260px, 85vw);
+    max-height: 260px;
   }
 }
 
