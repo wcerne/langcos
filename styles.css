@@ -466,49 +466,44 @@ footer{
    ========================= */
 
 /* This is now a full-width “card” inside the container */
+/* Mission row: full-width “box” with lots of space */
 .mission-row{
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* pushes ends apart */
-  gap: 28px;
-
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 18px 18px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* <-- forces separation */
+  gap: 24px;                      /* <-- ensures breathing room */
 }
 
-/* Keep the text readable, but let the row itself be full width */
+/* Text can wrap nicely and won’t crowd the logo */
 .mission-row p{
   margin: 0;
   flex: 1 1 auto;
-  max-width: 80ch;
+  max-width: 75ch; /* keeps text readable while still allowing space */
 }
 
-/* Logo sits at far right with ample breathing room */
+/* Logo lives on the far right */
 .mission-logo{
   width: 96px;
   height: 96px;
   object-fit: contain;
   flex: 0 0 auto;
-  margin-left: 20px; /* extra space from text */
 }
 
-/* Mobile: stack and slightly smaller */
+/* Mobile: stack */
 @media (max-width: 600px){
   .mission-row{
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
-  }
-  .mission-row p{
-    max-width: none;
   }
   .mission-logo{
     width: 72px;
     height: 72px;
-    margin-left: 0;
   }
 }
+
