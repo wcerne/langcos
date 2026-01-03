@@ -329,4 +329,130 @@ footer{
   .lead{ font-size: 16px; }
   .grid{ grid-template-columns: 1fr; }
 }
+/* =========================
+   Waitlist (MailerLite frame)
+   ========================= */
+.waitlist-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 18px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.waitlist-right{ min-width: 0; }
+
+/* --- MailerLite: force it to match site --- */
+#mlb2-35270909.ml-form-embedContainer{
+  width: 100% !important;
+  margin: 0 !important;
+  display: block !important;
+}
+
+#mlb2-35270909 .ml-form-embedWrapper{
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+#mlb2-35270909 .ml-form-embedBody,
+#mlb2-35270909 .ml-form-successBody{
+  padding: 0 !important;
+}
+
+#mlb2-35270909 .ml-form-embedContent{
+  margin: 0 0 10px 0 !important;
+  text-align: left !important;
+}
+
+#mlb2-35270909 .ml-form-embedContent h4,
+#mlb2-35270909 .ml-form-successContent h4{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: var(--text) !important;
+  margin: 0 0 6px 0 !important;
+}
+
+#mlb2-35270909 .ml-form-successContent p{
+  margin: 0 !important;
+  color: var(--muted) !important;
+  font-size: 14px !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+}
+
+#mlb2-35270909 input[type="email"]{
+  background: #fff !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  padding: 12px 12px !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+}
+
+#mlb2-35270909 button.primary{
+  background: var(--accent) !important;
+  border: 1px solid rgba(0,0,0,0) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  box-shadow: var(--shadow) !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+}
+
+#mlb2-35270909 button.primary:hover{
+  filter: brightness(1.05);
+}
+
+/* Make the email + button align like your site on desktop */
+#mlb2-35270909 .ml-form-horizontalRow{
+  display: flex !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+
+#mlb2-35270909 .ml-input-horizontal{
+  flex: 1 1 auto !important;
+  width: auto !important;
+}
+
+#mlb2-35270909 .ml-button-horizontal{
+  flex: 0 0 160px !important;
+  width: auto !important;
+}
+
+/* Mobile: stack */
+@media (max-width: 900px){
+  .waitlist-card{
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+@media (max-width: 520px){
+  #mlb2-35270909 .ml-form-horizontalRow{
+    flex-direction: column !important;
+  }
+  #mlb2-35270909 .ml-button-horizontal{
+    flex-basis: auto !important;
+  }
+}
 
