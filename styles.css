@@ -329,6 +329,7 @@ footer{
   .lead{ font-size: 16px; }
   .grid{ grid-template-columns: 1fr; }
 }
+
 /* =========================
    Waitlist (MailerLite frame)
    ========================= */
@@ -459,36 +460,55 @@ footer{
 #mlb2-35270909 .ml-mobileButton-horizontal {
   display: none !important;
 }
+
+/* =========================
+   Mission row (FULL WIDTH BOX + logo on right)
+   ========================= */
+
+/* This is now a full-width “card” inside the container */
 .mission-row{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes ends apart */
+  gap: 28px;
+
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 18px;
 }
 
+/* Keep the text readable, but let the row itself be full width */
 .mission-row p{
-  margin:0;
-  flex:1 1 auto;
+  margin: 0;
+  flex: 1 1 auto;
+  max-width: 80ch;
 }
 
+/* Logo sits at far right with ample breathing room */
 .mission-logo{
-  width:96px;
-  height:96px;
-  object-fit:contain;
-  flex:0 0 auto;
-  margin-left:auto;   /* <-- pushes logo to the right */
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  margin-left: 20px; /* extra space from text */
 }
-
 
 /* Mobile: stack and slightly smaller */
 @media (max-width: 600px){
   .mission-row{
-    flex-direction:column;
-    align-items:flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .mission-row p{
+    max-width: none;
   }
   .mission-logo{
-    width:72px;
-    height:72px;
+    width: 72px;
+    height: 72px;
+    margin-left: 0;
   }
 }
-
