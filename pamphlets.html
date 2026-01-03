@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <!-- MailerLite fonts (only once) -->
+  <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1766132");</style>
 </head>
 
 <body>
@@ -51,10 +54,9 @@
 
     <section>
       <h2>Library</h2>
-      <p class="muted">Replace titles/levels later. Buttons currently jump to the signup area.</p>
+      <p class="muted">Replace titles/levels later. Buttons jump to the matching signup box.</p>
 
       <div class="grid">
-        <!-- Duplicate these cards as needed -->
         <div class="card">
           <div>
             <h3>Title 1</h3>
@@ -62,7 +64,7 @@
           </div>
           <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <a class="btn" href="#signup-title-1">Email me the PDF</a>
         </div>
 
         <div class="card">
@@ -72,7 +74,7 @@
           </div>
           <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <a class="btn" href="#signup-title-2">Email me the PDF</a>
         </div>
 
         <div class="card">
@@ -82,7 +84,7 @@
           </div>
           <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <a class="btn" href="#signup-title-3">Email me the PDF</a>
         </div>
 
         <div class="card">
@@ -92,7 +94,7 @@
           </div>
           <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <a class="btn" href="#signup-title-4">Email me the PDF</a>
         </div>
 
         <div class="card">
@@ -102,7 +104,7 @@
           </div>
           <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <a class="btn" href="#signup-title-5">Email me the PDF</a>
         </div>
 
         <div class="card">
@@ -112,26 +114,197 @@
           </div>
           <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#signup">Email me the PDF</a>
+          <a class="btn" href="#signup-title-6">Email me the PDF</a>
         </div>
       </div>
     </section>
 
+    <!-- =========================
+         SIGNUP BOXES (6)
+         ========================= -->
+
     <section>
-      <div class="box" id="signup">
-        <label for="email">Get updates + pamphlet downloads by email</label>
+      <h2 style="margin-top:8px;">Get the PDF by email</h2>
+      <p class="muted" style="max-width:75ch;">
+        Click a button above, then enter your email below. You’ll get the PDF in your inbox.
+      </p>
 
-        <!-- Replace with MailerLite form embed later -->
-        <div class="row">
-          <input id="email" type="email" placeholder="you@email.com" />
-          <button class="btn primary" type="button" onclick="alert('Test only. Replace with your email form embed.')">
-            Subscribe
-          </button>
+      <!-- Box 1 -->
+      <div class="box" id="signup-title-1" style="margin-top:14px;">
+        <div style="font-weight:800; margin-bottom:6px;">Title 1</div>
+
+        <!-- ===== MailerLite Embed: Title 1 ===== -->
+        <style type="text/css">
+          /* (kept your embed CSS scoped to this form's IDs) */
+          .ml-form-embedSubmitLoad { display:inline-block; width:20px; height:20px; }
+          .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+          .ml-form-embedSubmitLoad:after { content:" "; display:block; width:11px; height:11px; margin:1px; border-radius:50%; border:4px solid #fff; border-color:#ffffff #ffffff #ffffff transparent; animation:ml-form-embedSubmitLoad 1.2s linear infinite; }
+          @keyframes ml-form-embedSubmitLoad { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+
+          #mlb2-35271380.ml-form-embedContainer{ box-sizing:border-box; display:table; margin:0 auto; position:static; width:100% !important; }
+          #mlb2-35271380.ml-form-embedContainer h4,
+          #mlb2-35271380.ml-form-embedContainer p,
+          #mlb2-35271380.ml-form-embedContainer span,
+          #mlb2-35271380.ml-form-embedContainer button { text-transform:none !important; letter-spacing:normal !important; }
+
+          #mlb2-35271380.ml-form-embedContainer .ml-form-embedWrapper{
+            background-color:#f6f6f6;
+            border-width:0px; border-color:transparent; border-radius:4px; border-style:solid;
+            box-sizing:border-box; display:inline-block !important; margin:0; padding:0; position:relative;
+          }
+          #mlb2-35271380.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width:400px; width:100%; }
+          #mlb2-35271380.ml-form-embedContainer .ml-form-align-center { text-align:center; }
+          #mlb2-35271380.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
+          #mlb2-35271380.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { padding:20px 20px 0 20px; }
+
+          #mlb2-35271380.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody form { margin:0; width:100%; }
+          #mlb2-35271380.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input{
+            background-color:#ffffff !important; color:#333333 !important; border-color:#cccccc;
+            border-radius:4px !important; border-style:solid !important; border-width:1px !important;
+            font-family:'Open Sans', Arial, Helvetica, sans-serif; font-size:14px !important;
+            padding:10px 10px !important; width:100% !important; box-sizing:border-box !important; max-width:100% !important;
+          }
+          #mlb2-35271380.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button{
+            background-color:#000000 !important; border:none !important; border-radius:4px !important; box-shadow:none !important;
+            color:#ffffff !important; cursor:pointer;
+            font-family:'Open Sans', Arial, Helvetica, sans-serif !important; font-size:14px !important; font-weight:700 !important;
+            line-height:21px !important; padding:10px !important; width:100% !important; box-sizing:border-box !important;
+          }
+          #mlb2-35271380.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover{ background-color:#333333 !important; }
+        </style>
+
+        <div id="mlb2-35271380" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35271380">
+          <div class="ml-form-align-center ">
+            <div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <div class="ml-form-embedContent" style="margin-bottom: 0px;"></div>
+
+                <form class="ml-block-form"
+                  action="https://assets.mailerlite.com/jsonp/2014195/forms/175541050528499261/subscribe"
+                  data-code="" method="post" target="_blank">
+
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow ml-last-item">
+                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                        <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email">
+                      </div>
+                    </div>
+                  </div>
+
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit">
+                    <button type="submit" class="primary">Subscribe</button>
+                    <button disabled="disabled" style="display:none;" type="button" class="loading">
+                      <div class="ml-form-embedSubmitLoad"></div>
+                      <span class="sr-only">Loading...</span>
+                    </button>
+                  </div>
+
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+
+              <div class="ml-form-successBody row-success" style="display:none">
+                <div class="ml-form-successContent">
+                  <h4>Thank you!</h4>
+                  <p>You have successfully joined our subscriber list.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="small" style="margin-top:10px;">
-          Tip: later you can create tags/segments (Math / Physics / Exam Review) and link different forms from different buttons.
-        </div>
+        <script>
+          function ml_webform_success_35271380() {
+            var $ = window.ml_jQuery || window.jQuery;
+            $('.ml-subscribe-form-35271380 .row-success').show();
+            $('.ml-subscribe-form-35271380 .row-form').hide();
+          }
+          fetch("https://assets.mailerlite.com/jsonp/2014195/forms/175541050528499261/takel");
+        </script>
+        <!-- ===== /MailerLite Embed ===== -->
+      </div>
+
+      <!-- Box 2 -->
+      <div class="box" id="signup-title-2" style="margin-top:14px;">
+        <div style="font-weight:800; margin-bottom:6px;">Title 2</div>
+
+        <!-- NOTE:
+             Replace the action + takel URLs below if MailerLite gave you different ones for Title 2.
+             Also confirm the ID is 35271381 in your embed.
+        -->
+        <div id="mlb2-35271381" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35271381"></div>
+
+        <script>
+          function ml_webform_success_35271381() {
+            var $ = window.ml_jQuery || window.jQuery;
+            $('.ml-subscribe-form-35271381 .row-success').show();
+            $('.ml-subscribe-form-35271381 .row-form').hide();
+          }
+        </script>
+
+        <!-- PASTE YOUR FULL Title 2 EMBED DIV+FORM INSIDE the container above
+             (same as Title 1, but with 35271381 and Title 2 URLs) -->
+      </div>
+
+      <!-- Box 3 -->
+      <div class="box" id="signup-title-3" style="margin-top:14px;">
+        <div style="font-weight:800; margin-bottom:6px;">Title 3</div>
+        <div id="mlb2-35271382" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35271382"></div>
+        <script>
+          function ml_webform_success_35271382() {
+            var $ = window.ml_jQuery || window.jQuery;
+            $('.ml-subscribe-form-35271382 .row-success').show();
+            $('.ml-subscribe-form-35271382 .row-form').hide();
+          }
+        </script>
+        <!-- Paste Title 3 embed here (35271382 + its URLs) -->
+      </div>
+
+      <!-- Box 4 -->
+      <div class="box" id="signup-title-4" style="margin-top:14px;">
+        <div style="font-weight:800; margin-bottom:6px;">Title 4</div>
+        <div id="mlb2-35271383" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35271383"></div>
+        <script>
+          function ml_webform_success_35271383() {
+            var $ = window.ml_jQuery || window.jQuery;
+            $('.ml-subscribe-form-35271383 .row-success').show();
+            $('.ml-subscribe-form-35271383 .row-form').hide();
+          }
+        </script>
+        <!-- Paste Title 4 embed here (35271383 + its URLs) -->
+      </div>
+
+      <!-- Box 5 -->
+      <div class="box" id="signup-title-5" style="margin-top:14px;">
+        <div style="font-weight:800; margin-bottom:6px;">Title 5</div>
+        <div id="mlb2-35271384" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35271384"></div>
+        <script>
+          function ml_webform_success_35271384() {
+            var $ = window.ml_jQuery || window.jQuery;
+            $('.ml-subscribe-form-35271384 .row-success').show();
+            $('.ml-subscribe-form-35271384 .row-form').hide();
+          }
+        </script>
+        <!-- Paste Title 5 embed here (35271384 + its URLs) -->
+      </div>
+
+      <!-- Box 6 -->
+      <div class="box" id="signup-title-6" style="margin-top:14px;">
+        <div style="font-weight:800; margin-bottom:6px;">Title 6</div>
+        <div id="mlb2-35271385" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35271385"></div>
+        <script>
+          function ml_webform_success_35271385() {
+            var $ = window.ml_jQuery || window.jQuery;
+            $('.ml-subscribe-form-35271385 .row-success').show();
+            $('.ml-subscribe-form-35271385 .row-form').hide();
+          }
+        </script>
+        <!-- Paste Title 6 embed here (35271385 + its URLs) -->
+      </div>
+
+      <div class="small" style="margin-top:10px;">
+        Tip: later you can create tags/segments (Math / Physics / Exam Review) and link different forms from different buttons.
       </div>
     </section>
 
@@ -142,15 +315,16 @@
       </div>
       <div>© Langcos — “The language of the cosmos.”</div>
       <div>
-  Contact:
-  <a href="mailto:physicswithwill@gmail.com">
-    physicswithwill@gmail.com
-  </a>
-</div>
+        Contact:
+        <a href="mailto:physicswithwill@gmail.com">physicswithwill@gmail.com</a>
+      </div>
     </footer>
   </main>
 
+  <!-- Your site JS -->
   <script src="script.js"></script>
+
+  <!-- Load MailerLite webforms ONCE (very important) -->
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
 </body>
 </html>
-
