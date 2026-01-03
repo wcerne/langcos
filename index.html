@@ -11,9 +11,6 @@
 
   <!-- Make "Browse topics" look like the old brown primary button -->
   <style>
-    /* You already use .btn.primary as the brown button in your CSS.
-       This class forces the "Browse topics" CTA to match the primary style
-       even if your base .btn styles change later. */
     .cta-row .btn.browse-primary {
       background-color: #6B4F3A;
       border-color: #6B4F3A;
@@ -69,8 +66,6 @@
           </p>
 
           <div class="cta-row">
-            <!-- Removed "Get a free pamphlet" -->
-            <!-- "Browse topics" now uses the brown style -->
             <a class="btn browse-primary" href="pamphlets.html">Browse topics</a>
           </div>
 
@@ -80,7 +75,7 @@
         <div class="box" id="signup">
           <label for="email">Sign up for the Langcos newsletter to receive updates on classes, new pamphlets, and future projects</label>
 
-          <!-- MailerLite embed (unchanged) -->
+          <!-- MailerLite embed (newsletter signup) -->
           <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1766132");</style>
           <style type="text/css">
             /* LOADER */
@@ -171,7 +166,6 @@
               box-sizing: border-box !important;
               max-width: 100% !important;
             }
-            /* Brown submit button (already your desired brand color) */
             #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button {
               background-color: #6B4F3A !important;
               border: none !important;
@@ -265,20 +259,21 @@
       </ul>
     </section>
 
+    <!-- UPDATED to match pamphlets.html + new signup.html?pamphlet=... flow -->
     <section>
       <h2>Featured pamphlets</h2>
-      <p class="muted">Click any title to see the full list. “Email me the PDF” will connect to your form.</p>
+      <p class="muted">Choose a title and I’ll email you that specific PDF.</p>
 
       <div class="grid">
         <div class="card">
           <div>
             <h3>Title 1</h3>
-            <div class="meta">Level: Intermediate</div>
+            <div class="meta">Level: Intro</div>
           </div>
-          <p>Short description goes here. Replace later.</p>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
           <div class="row">
-            <a class="btn" href="#signup">Email me the PDF</a>
+            <a class="btn" href="signup.html?pamphlet=title-1">Email me the PDF</a>
             <a class="btn linkish" href="pamphlets.html">View all →</a>
           </div>
         </div>
@@ -288,10 +283,10 @@
             <h3>Title 2</h3>
             <div class="meta">Level: Intermediate</div>
           </div>
-          <p>Short description goes here. Replace later.</p>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
           <div class="row">
-            <a class="btn" href="#signup">Email me the PDF</a>
+            <a class="btn" href="signup.html?pamphlet=title-2">Email me the PDF</a>
             <a class="btn linkish" href="pamphlets.html">View all →</a>
           </div>
         </div>
@@ -301,10 +296,10 @@
             <h3>Title 3</h3>
             <div class="meta">Level: Intermediate</div>
           </div>
-          <p>Short description goes here. Replace later.</p>
+          <p>What you’ll learn: key ideas, standard methods, and common pitfalls—with worked examples.</p>
           <div class="spacer"></div>
           <div class="row">
-            <a class="btn" href="#signup">Email me the PDF</a>
+            <a class="btn" href="signup.html?pamphlet=title-3">Email me the PDF</a>
             <a class="btn linkish" href="pamphlets.html">View all →</a>
           </div>
         </div>
