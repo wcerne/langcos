@@ -510,37 +510,44 @@ footer{
 /* =========================
    About page: "Who I am" card
    ========================= */
+/* =========================
+   About page: "Who I am" card
+   Text left, photo right
+   ========================= */
 .aboutme-card{
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 16px;
-  display: grid;
-  grid-template-columns: 220px 1fr; /* photo left, text right */
-  gap: 18px;
-  align-items: start;
-}
-
-.aboutme-photo{
-  width: 100%;
-  height: 240px;
-  border-radius: 12px;
-  object-fit: cover;
-  border: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
 }
 
 .aboutme-text{
+  flex: 1 1 auto;
   min-width: 0;
 }
 
-/* Mobile: stack */
+.aboutme-photo{
+  width: 160px;     /* smaller */
+  height: 160px;    /* smaller */
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex: 0 0 auto;
+}
+
+/* Mobile: stack nicely */
 @media (max-width: 700px){
   .aboutme-card{
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
   .aboutme-photo{
-    height: 220px;
+    width: 140px;
+    height: 140px;
   }
 }
+
 
