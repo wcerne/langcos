@@ -455,4 +455,8 @@ footer{
     flex-basis: auto !important;
   }
 }
+/* Hide MailerLite's duplicate mobile submit button */
+#mlb2-35270909 .ml-mobileButton-horizontal {
+  display: none !important;
+}
 
