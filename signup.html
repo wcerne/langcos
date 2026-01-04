@@ -107,7 +107,7 @@
     </div>
 
     <!-- =========================
-         Title 2 (mlb2-35271391)  <-- FIXED
+         Title 2 (mlb2-35271391)
          form: 175541291718805104
          ========================= -->
     <div id="form-title-2" style="display:none;">
@@ -213,18 +213,16 @@
     </p>
   </main>
 
-  <!-- Your show-the-right-form logic (unchanged) -->
+  <!-- Load your shared mapping + menu logic -->
+  <script src="script.js"></script>
+
+  <!-- Show-the-right-form logic (now uses script.js titles) -->
   <script>
     const params = new URLSearchParams(window.location.search);
     const pamphlet = params.get("pamphlet");
 
-    const titles = {
-      "title-1": "Title 1",
-      "title-2": "Title 2",
-      "title-3": "Title 3"
-    };
-
-    const title = titles[pamphlet];
+    const map = window.LANGCOS_PAMPHLETS || {};
+    const title = (map[pamphlet] && map[pamphlet].title) ? map[pamphlet].title : null;
 
     const subtitleEl = document.getElementById("pageSubtitle");
     const titleEl = document.getElementById("pageTitle");
