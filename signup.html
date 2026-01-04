@@ -217,27 +217,37 @@
   <script src="script.js"></script>
 
   <!-- Show-the-right-form logic (now uses script.js titles) -->
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const pamphlet = params.get("pamphlet");
+<script>
+  const params = new URLSearchParams(window.location.search);
 
-    const map = window.LANGCOS_PAMPHLETS || {};
-    const title = (map[pamphlet] && map[pamphlet].title) ? map[pamphlet].title : null;
+  // Accept a few possible parameter names (more robust)
+  let pamphlet = params.get("pamphlet") || params.get("title") || params.get("p") || "";
+  pamphlet = pamphlet.trim().toLowerCase();
 
-    const subtitleEl = document.getElementById("pageSubtitle");
-    const titleEl = document.getElementById("pageTitle");
+  const titles = {
+    "title-1": "Hilbert Spaces in Quantum Mechanics",
+    "title-2": "Title 2",
+    "title-3": "Title 3"
+  };
 
-    if (!title) {
-      titleEl.textContent = "Invalid pamphlet link";
-      subtitleEl.textContent = "Please return to the pamphlets page and click a button again.";
-    } else {
-      titleEl.textContent = `Get “${title}”`;
-      subtitleEl.textContent = "Enter your email and I’ll send it right over.";
+  const title = titles[pamphlet];
 
-      const formEl = document.getElementById(`form-${pamphlet}`);
-      if (formEl) formEl.style.display = "block";
-    }
-  </script>
+  const subtitleEl = document.getElementById("pageSubtitle");
+  const titleEl = document.getElementById("pageTitle");
+
+  if (!title) {
+    titleEl.textContent = "Invalid pamphlet link";
+    subtitleEl.innerHTML = `Please return to the <a href="pamphlets.html">pamphlets page</a> and click a title again.`;
+  } else {
+    titleEl.textContent = `Get “${title}”`;
+    subtitleEl.textContent = "Enter your email and I’ll send it right over.";
+
+    // Your form containers are named like: form-title-1, form-title-2, ...
+    const formEl = document.getElementById(`form-${pamphlet}`);
+    if (formEl) formEl.style.display = "block";
+  }
+</script>
+
 
   <!-- MailerLite: load ONCE so all three embeds work -->
   <script>
