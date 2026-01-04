@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Get the pamphlet • Langcos</title>
-  <meta name="description" content="Enter your email to receive the requested Langcos pamphlet." />
+  <title>Get the study guide • Langcos</title>
+  <meta name="description" content="Enter your email to receive the requested Langcos study guide." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
   <!-- MailerLite font (optional; safe to keep) -->
   <link rel="stylesheet" href="https://assets.mlcdn.com/fonts.css?version=1766132" />
@@ -40,17 +42,28 @@
 
         <nav class="nav" aria-label="Primary">
           <a href="index.html">Home</a>
-          <a href="pamphlets.html">Pamphlets</a>
+          <a class="active" href="pamphlets.html">Study Guides</a>
           <a href="about.html">About</a>
           <a href="classes.html">Classes</a>
         </nav>
+
+        <button class="menu-btn" type="button" data-menu-btn aria-expanded="false" aria-controls="mobile-nav">
+          Menu
+        </button>
+      </div>
+
+      <div id="mobile-nav" class="mobile-nav" data-mobile-nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="pamphlets.html">Study Guides</a>
+        <a href="about.html">About</a>
+        <a href="classes.html">Classes</a>
       </div>
     </div>
   </header>
 
   <main class="container" style="max-width:700px;">
     <section class="pagehead">
-      <h1 id="pageTitle">Get the pamphlet</h1>
+      <h1 id="pageTitle">Get the study guide</h1>
       <p class="lead muted" id="pageSubtitle"></p>
       <hr class="sep" />
     </section>
@@ -209,45 +222,37 @@
     </div>
 
     <p class="small muted" style="margin-top:16px;">
-      If something looks wrong, go back to the <a href="pamphlets.html">pamphlets page</a> and try again.
+      If something looks wrong, go back to the <a href="pamphlets.html">Study Guides page</a> and try again.
     </p>
   </main>
 
-  <!-- Load your shared mapping + menu logic -->
-  <script src="script.js"></script>
+  <!-- Show-the-right-form logic -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const pamphlet = params.get("pamphlet"); // keep param name for now
 
-  <!-- Show-the-right-form logic (now uses script.js titles) -->
-<script>
-  const params = new URLSearchParams(window.location.search);
+    const titles = {
+      "title-1": "Hilbert Spaces in Quantum Mechanics",
+      "title-2": "Title 2",
+      "title-3": "Title 3"
+    };
 
-  // Accept a few possible parameter names (more robust)
-  let pamphlet = params.get("pamphlet") || params.get("title") || params.get("p") || "";
-  pamphlet = pamphlet.trim().toLowerCase();
+    const title = titles[pamphlet];
 
-  const titles = {
-    "title-1": "Hilbert Spaces in Quantum Mechanics",
-    "title-2": "Title 2",
-    "title-3": "Title 3"
-  };
+    const subtitleEl = document.getElementById("pageSubtitle");
+    const titleEl = document.getElementById("pageTitle");
 
-  const title = titles[pamphlet];
+    if (!title) {
+      titleEl.textContent = "Invalid study guide link";
+      subtitleEl.textContent = "Please return to the Study Guides page and click a button again.";
+    } else {
+      titleEl.textContent = `Get “${title}”`;
+      subtitleEl.textContent = "Enter your email and I’ll send it right over.";
 
-  const subtitleEl = document.getElementById("pageSubtitle");
-  const titleEl = document.getElementById("pageTitle");
-
-  if (!title) {
-    titleEl.textContent = "Invalid pamphlet link";
-    subtitleEl.innerHTML = `Please return to the <a href="pamphlets.html">pamphlets page</a> and click a title again.`;
-  } else {
-    titleEl.textContent = `Get “${title}”`;
-    subtitleEl.textContent = "Enter your email and I’ll send it right over.";
-
-    // Your form containers are named like: form-title-1, form-title-2, ...
-    const formEl = document.getElementById(`form-${pamphlet}`);
-    if (formEl) formEl.style.display = "block";
-  }
-</script>
-
+      const formEl = document.getElementById(`form-${pamphlet}`);
+      if (formEl) formEl.style.display = "block";
+    }
+  </script>
 
   <!-- MailerLite: load ONCE so all three embeds work -->
   <script>
@@ -278,5 +283,7 @@
     fetch("https://assets.mailerlite.com/jsonp/2014195/forms/175541291718805104/takel");
     fetch("https://assets.mailerlite.com/jsonp/2014195/forms/175541342449960478/takel");
   </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
