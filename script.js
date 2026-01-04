@@ -9,4 +9,3 @@
     btn.setAttribute("aria-expanded", expanded ? "false" : "true");
   });
 })();
-
