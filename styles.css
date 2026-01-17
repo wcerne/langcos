@@ -1,11 +1,14 @@
 :root{
-  --bg: #fbfaf7;
+  --bg: #ffffff;            /* page background (was off-white) */
   --card: #ffffff;
   --text: #141414;
   --muted: #5a5a5a;
   --border: rgba(0,0,0,0.10);
-  --accent: #6b4f3a; /* muted brown */
-  --accent2: rgba(107,79,58,0.12);
+
+  /* NEW: light blue theme */
+  --accent: #2F6FED;        /* primary blue (buttons, highlights) */
+  --accent2: rgba(47,111,237,0.12); /* soft blue tint (badges, logo-mark bg) */
+
   --shadow: 0 10px 25px rgba(0,0,0,0.06);
   --radius: 14px;
   --max: 1100px;
