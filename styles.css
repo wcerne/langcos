@@ -38,7 +38,7 @@ a:hover{ text-decoration: underline; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255,255,255,0.92); /* was rgba(251,250,247,0.88) */
+  background: rgba(214, 236, 255, 0.95); /* was rgba(251,250,247,0.88) */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
