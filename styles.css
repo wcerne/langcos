@@ -584,4 +584,59 @@ button.primary:hover,
   filter: brightness(1.05) !important;
 }
 
+/* =========================
+   Header layout refresh
+   ========================= */
+
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* brand left, tabs right */
+  gap: 18px;
+}
+
+/* Make the brand (logo + Langcos) bigger */
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  font-size: 22px;              /* bigger "Langcos" */
+}
+
+/* Bigger logo in header */
+.header .logo-img{
+  width: 40px !important;
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+}
+
+/* Push nav to the right edge */
+.nav{
+  margin-left: auto;            /* key line: tabs to the right */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Slightly beef up tab text + click area */
+.nav a{
+  font-size: 15px;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+/* Mobile: keep menu button on the far right */
+@media (max-width: 700px){
+  .brand{ font-size: 20px; }
+  .header .logo-img{
+    width: 34px !important;
+    height: 34px !important;
+    max-width: 34px !important;
+    max-height: 34px !important;
+  }
+}
 
