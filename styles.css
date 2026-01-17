@@ -555,4 +555,33 @@ footer{
   }
 }
 
+/* =========================
+   Force Langcos accent everywhere
+   ========================= */
+.btn.primary,
+button.primary,
+.cta-row .btn.browse-primary,
+.ig-card .ig-btn,
+#mlb2-35270602 .ml-form-embedSubmit button,
+#mlb2-35270909 button.primary,
+#mlb2-35271380 button.primary,
+#mlb2-35271391 button.primary,
+#mlb2-35271412 button.primary{
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+}
+
+.btn.primary:hover,
+button.primary:hover,
+.cta-row .btn.browse-primary:hover,
+.ig-card .ig-btn:hover,
+#mlb2-35270602 .ml-form-embedSubmit button:hover,
+#mlb2-35270909 button.primary:hover,
+#mlb2-35271380 button.primary:hover,
+#mlb2-35271391 button.primary:hover,
+#mlb2-35271412 button.primary:hover{
+  filter: brightness(1.05) !important;
+}
+
 
