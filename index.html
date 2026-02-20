@@ -62,6 +62,21 @@
       object-fit: cover;
     }
 
+    /* NEW: sample page image styling (portrait-friendly) */
+    .sample-page{
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: block;
+      background: var(--card);
+      height: auto;
+    }
+    .sample-caption{
+      margin-top: var(--space-2);
+      font-size: 0.92rem;
+    }
+
     /* Section divider spacing (uses your existing .sep styling too) */
     .section-divider{
       margin: var(--space-5) 0;
@@ -104,7 +119,7 @@
 
     /* ===== Bullet list spacing (fixes the “gap after bullets” problem) ===== */
     .bullets{
-      margin: 0 0 var(--space-3) 0;   /* removes default big margins */
+      margin: 0 0 var(--space-3) 0;
       padding-left: 1.25em;
     }
     .bullets li{
@@ -394,29 +409,45 @@
           </p>
         </div>
 
-        <!-- Right: Gumroad embed placeholder -->
-        <div class="gumroad-embed">
-          <!-- Option A (recommended): Gumroad product embed.
-               Replace YOUR_GUMROAD_PRODUCT_URL with the real product URL, e.g. https://langcos.gumroad.com/l/qm-essentials -->
-
-          <!--
-          <script src="https://gumroad.com/js/gumroad-embed.js"></script>
-          <div class="gumroad-product-embed" data-gumroad-product-url="YOUR_GUMROAD_PRODUCT_URL">
-            <a href="YOUR_GUMROAD_PRODUCT_URL">Loading...</a>
+        <!-- Right: sample page + Gumroad embed placeholder -->
+        <div class="stack">
+          <!-- Sample page image (make sure the file is located at assets/quantummechanicssamplepage.png) -->
+          <div class="box" style="margin:0;">
+            <img
+              class="sample-page"
+              src="assets/quantummechanicssamplepage.png"
+              alt="Sample page from Langcos Essentials of Quantum Mechanics"
+              loading="lazy"
+            />
+            <p class="muted sample-caption" style="margin:0;">
+              <strong>Sample page:</strong> a typical spread showing the level of clarity, structure, and worked detail.
+            </p>
           </div>
-          -->
 
-          <!-- Placeholder content while you set up Gumroad -->
-          <div style="padding:16px;">
-            <div style="font-weight:800; margin-bottom:6px;">Gumroad embed goes here</div>
-            <div class="muted" style="margin-bottom:10px;">
-              When your product is ready, paste the Gumroad embed code here (cover + buy button).
+          <div class="gumroad-embed">
+            <!-- Option A (recommended): Gumroad product embed.
+                 Replace YOUR_GUMROAD_PRODUCT_URL with the real product URL, e.g. https://langcos.gumroad.com/l/qm-essentials -->
+
+            <!--
+            <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+            <div class="gumroad-product-embed" data-gumroad-product-url="YOUR_GUMROAD_PRODUCT_URL">
+              <a href="YOUR_GUMROAD_PRODUCT_URL">Loading...</a>
             </div>
-            <div class="small">
-              Tip: Gumroad provides an embed script + a <code>data-gumroad-product-url</code> you can drop in.
+            -->
+
+            <!-- Placeholder content while you set up Gumroad -->
+            <div style="padding:16px;">
+              <div style="font-weight:800; margin-bottom:6px;">Gumroad embed goes here</div>
+              <div class="muted" style="margin-bottom:10px;">
+                When your product is ready, paste the Gumroad embed code here (cover + buy button).
+              </div>
+              <div class="small">
+                Tip: Gumroad provides an embed script + a <code>data-gumroad-product-url</code> you can drop in.
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
