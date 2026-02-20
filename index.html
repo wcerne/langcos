@@ -20,34 +20,10 @@
       --space-5: 26px;
     }
 
-    /* Consistent type + rhythm inside main content */
-    main.container{
-      line-height: var(--lh);
-    }
-    main.container h1,
-    main.container h2{
-      line-height: 1.2;
-      margin: 0 0 var(--space-3) 0;
-    }
-    main.container p{
-      margin: 0 0 var(--space-3) 0;
-    }
-    main.container p:last-child{
-      margin-bottom: 0;
-    }
-
-    /* Keep the old "Browse topics" styling (you can remove if unused) */
-    .cta-row .btn.browse-primary {
-      background-color: #6B4F3A;
-      border-color: #6B4F3A;
-      color: #ffffff;
-      text-decoration: none;
-    }
-    .cta-row .btn.browse-primary:hover {
-      background-color: #8A6A52;
-      border-color: #8A6A52;
-      text-decoration: none;
-    }
+    main.container{ line-height: var(--lh); }
+    main.container h1, main.container h2{ line-height: 1.2; margin: 0 0 var(--space-3) 0; }
+    main.container p{ margin: 0 0 var(--space-3) 0; }
+    main.container p:last-child{ margin-bottom: 0; }
 
     /* Simple reusable image placeholder */
     .hero-photo{
@@ -62,27 +38,8 @@
       object-fit: cover;
     }
 
-    /* NEW: sample page image styling (portrait-friendly) */
-    .sample-page{
-      width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      display: block;
-      background: var(--card);
-      height: auto;
-    }
-    .sample-caption{
-      margin-top: var(--space-2);
-      font-size: 0.92rem;
-    }
+    .section-divider{ margin: var(--space-5) 0; }
 
-    /* Section divider spacing (uses your existing .sep styling too) */
-    .section-divider{
-      margin: var(--space-5) 0;
-    }
-
-    /* Essentials section layout */
     .essentials-grid{
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -93,17 +50,64 @@
       .essentials-grid{ grid-template-columns: 1fr; }
     }
 
-    /* Gumroad embed wrapper */
-    .gumroad-embed{
+    /* ===== Right-column combined card (sample + buy) ===== */
+    .product-card{
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
       background: var(--card);
-      min-height: 420px;
+    }
+    .product-card .pc-top{
+      padding: 14px 14px 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .product-card .pc-title{
+      font-weight: 800;
+      margin: 0 0 6px 0;
+      line-height: 1.25;
+    }
+    .product-card .pc-sub{
+      margin: 0;
+      opacity: 0.85;
+    }
+    .product-card .pc-media{
+      padding: 12px 14px 0 14px;
+    }
+    .sample-page{
+      width: 100%;
+      height: auto;
+      border-radius: calc(var(--radius) - 2px);
+      border: 1px solid var(--border);
+      background: #fff;
+      display: block;
+    }
+    .sample-caption{
+      margin: 10px 0 12px 0;
+      font-size: 0.92rem;
     }
 
-    /* Instagram footer link */
+    /* Buy area stays visually attached to the sample image */
+    .buy-area{
+      padding: 0 14px 14px 14px;
+    }
+    .gumroad-embed{
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) - 2px);
+      overflow: hidden;
+      background: var(--card);
+      min-height: 320px; /* smaller so it doesn't look like a giant empty slab */
+    }
+
+    /* Bullets spacing */
+    .bullets{ margin: 0 0 var(--space-3) 0; padding-left: 1.25em; }
+    .bullets li{ margin: 0 0 var(--space-2) 0; line-height: var(--lh); }
+    .bullets li:last-child{ margin-bottom: 0; }
+
+    .lead{ margin: 0 0 var(--space-4) 0 !important; }
+    .stack > * + *{ margin-top: var(--space-3); }
+
+    /* Footer links */
     .footer-links{
       display: flex;
       flex-wrap: wrap;
@@ -115,29 +119,6 @@
       color: #1a73e8;
       text-decoration: underline;
       font-weight: 700;
-    }
-
-    /* ===== Bullet list spacing (fixes the “gap after bullets” problem) ===== */
-    .bullets{
-      margin: 0 0 var(--space-3) 0;
-      padding-left: 1.25em;
-    }
-    .bullets li{
-      margin: 0 0 var(--space-2) 0;
-      line-height: var(--lh);
-    }
-    .bullets li:last-child{
-      margin-bottom: 0;
-    }
-
-    /* Slightly tighter lead paragraph so it sits nicely under the H1 */
-    .lead{
-      margin: 0 0 var(--space-4) 0 !important;
-    }
-
-    /* Consistent spacing blocks */
-    .stack > * + *{
-      margin-top: var(--space-3);
     }
 
     /* FORCE MailerLite button to be blue */
@@ -232,93 +213,41 @@
             <!-- MailerLite embed (newsletter signup) -->
             <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1766132");</style>
             <style type="text/css">
-              /* LOADER */
               .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
-              .g-recaptcha {
-                transform: scale(1);
-                -webkit-transform: scale(1);
-                transform-origin: 0 0;
-                -webkit-transform-origin: 0 0;
-                height: ;
-              }
               .sr-only {
-                position: absolute;
-                width: 1px;
-                height: 1px;
-                padding: 0;
-                margin: 0;
-                overflow: hidden;
-                clip: rect(0,0,0,0);
-                border: 0;
+                position: absolute; width: 1px; height: 1px; padding: 0; margin: 0;
+                overflow: hidden; clip: rect(0,0,0,0); border: 0;
               }
               .ml-form-embedSubmitLoad:after {
-                content: " ";
-                display: block;
-                width: 11px;
-                height: 11px;
-                margin: 1px;
-                border-radius: 50%;
-                border: 4px solid #fff;
+                content: " "; display: block; width: 11px; height: 11px; margin: 1px;
+                border-radius: 50%; border: 4px solid #fff;
                 border-color: #ffffff #ffffff #ffffff transparent;
                 animation: ml-form-embedSubmitLoad 1.2s linear infinite;
               }
-              @keyframes ml-form-embedSubmitLoad {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-              }
-              #mlb2-35270602.ml-form-embedContainer {
-                box-sizing: border-box;
-                display: table;
-                margin: 0 auto;
-                position: static;
-                width: 100% !important;
-              }
+              @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+              #mlb2-35270602.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0 auto; position: static; width: 100% !important; }
               #mlb2-35270602.ml-form-embedContainer h4,
               #mlb2-35270602.ml-form-embedContainer p,
               #mlb2-35270602.ml-form-embedContainer span,
-              #mlb2-35270602.ml-form-embedContainer button {
-                text-transform: none !important;
-                letter-spacing: normal !important;
-              }
+              #mlb2-35270602.ml-form-embedContainer button { text-transform: none !important; letter-spacing: normal !important; }
               #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper {
-                background-color: #f6f6f6;
-                border-width: 0px;
-                border-color: transparent;
-                border-radius: 4px;
-                border-style: solid;
-                box-sizing: border-box;
-                display: inline-block !important;
-                margin: 0;
-                padding: 0;
-                position: relative;
+                background-color: #f6f6f6; border-width: 0px; border-color: transparent; border-radius: 4px; border-style: solid;
+                box-sizing: border-box; display: inline-block !important; margin: 0; padding: 0; position: relative;
               }
-              #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper.embedPopup,
-              #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper.embedDefault { width: 400px; }
               #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 400px; width: 100%; }
               #mlb2-35270602.ml-form-embedContainer .ml-form-align-center { text-align: center; }
               #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
-              #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
-                padding: 20px 20px 0 20px;
-              }
+              #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { padding: 20px 20px 0 20px; }
               #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,
               #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent {
-                text-align: left;
-                margin: 0 0 20px 0;
+                text-align: left; margin: 0 0 20px 0;
               }
               #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input {
-                background-color: #ffffff !important;
-                color: #333333 !important;
-                border-color: #cccccc;
-                border-radius: 4px !important;
-                border-style: solid !important;
-                border-width: 1px !important;
+                background-color: #ffffff !important; color: #333333 !important; border-color: #cccccc;
+                border-radius: 4px !important; border-style: solid !important; border-width: 1px !important;
                 font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-                font-size: 14px !important;
-                line-height: 21px !important;
-                padding: 10px 10px !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-                max-width: 100% !important;
+                font-size: 14px !important; line-height: 21px !important; padding: 10px 10px !important;
+                width: 100% !important; box-sizing: border-box !important; max-width: 100% !important;
               }
             </style>
 
@@ -409,40 +338,46 @@
           </p>
         </div>
 
-        <!-- Right: sample page + Gumroad embed placeholder -->
-        <div class="stack">
-          <!-- Sample page image (make sure the file is located at assets/quantummechanicssamplepage.png) -->
-          <div class="box" style="margin:0;">
+        <!-- Right: combined sample + buy card (looks cohesive, not cramped) -->
+        <div class="product-card">
+          <div class="pc-top">
+            <p class="pc-title">Preview a sample page</p>
+            <p class="muted pc-sub">This is a representative page from the guide—clarity, structure, and worked detail.</p>
+          </div>
+
+          <div class="pc-media">
             <img
               class="sample-page"
               src="assets/quantummechanicssamplepage.png"
               alt="Sample page from Langcos Essentials of Quantum Mechanics"
               loading="lazy"
             />
-            <p class="muted sample-caption" style="margin:0;">
-              <strong>Sample page:</strong> a typical spread showing the level of clarity, structure, and worked detail.
+            <p class="muted sample-caption">
+              <strong>What you’re seeing:</strong> short conceptual framing, a clean derivation, and a fast order-of-magnitude estimate.
             </p>
           </div>
 
-          <div class="gumroad-embed">
-            <!-- Option A (recommended): Gumroad product embed.
-                 Replace YOUR_GUMROAD_PRODUCT_URL with the real product URL, e.g. https://langcos.gumroad.com/l/qm-essentials -->
+          <div class="buy-area">
+            <div class="gumroad-embed">
+              <!-- Option A (recommended): Gumroad product embed.
+                   Replace YOUR_GUMROAD_PRODUCT_URL with the real product URL, e.g. https://langcos.gumroad.com/l/qm-essentials -->
 
-            <!--
-            <script src="https://gumroad.com/js/gumroad-embed.js"></script>
-            <div class="gumroad-product-embed" data-gumroad-product-url="YOUR_GUMROAD_PRODUCT_URL">
-              <a href="YOUR_GUMROAD_PRODUCT_URL">Loading...</a>
-            </div>
-            -->
-
-            <!-- Placeholder content while you set up Gumroad -->
-            <div style="padding:16px;">
-              <div style="font-weight:800; margin-bottom:6px;">Gumroad embed goes here</div>
-              <div class="muted" style="margin-bottom:10px;">
-                When your product is ready, paste the Gumroad embed code here (cover + buy button).
+              <!--
+              <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+              <div class="gumroad-product-embed" data-gumroad-product-url="YOUR_GUMROAD_PRODUCT_URL">
+                <a href="YOUR_GUMROAD_PRODUCT_URL">Loading...</a>
               </div>
-              <div class="small">
-                Tip: Gumroad provides an embed script + a <code>data-gumroad-product-url</code> you can drop in.
+              -->
+
+              <!-- Placeholder content while you set up Gumroad -->
+              <div style="padding:16px;">
+                <div style="font-weight:800; margin-bottom:6px;">Buy / download (Gumroad)</div>
+                <div class="muted" style="margin-bottom:10px;">
+                  Paste your Gumroad embed here so the buy button lives directly under the sample page.
+                </div>
+                <div class="small">
+                  Tip: Gumroad provides an embed script + a <code>data-gumroad-product-url</code>.
+                </div>
               </div>
             </div>
           </div>
