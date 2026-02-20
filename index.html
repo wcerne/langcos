@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
   <style>
-    /* ===== Page-level rhythm + typography (keeps everything consistent) ===== */
+    /* ===== Page-level rhythm + typography ===== */
     :root{
       --lh: 1.65;
       --space-1: 6px;
@@ -40,9 +40,10 @@
 
     .section-divider{ margin: var(--space-5) 0; }
 
+    /* ===== Essentials grid: give product card a bit more room ===== */
     .essentials-grid{
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr 1fr;       /* more balanced */
       gap: 18px;
       align-items: start;
     }
@@ -50,7 +51,7 @@
       .essentials-grid{ grid-template-columns: 1fr; }
     }
 
-    /* ===== Right-column combined card (sample + buy) ===== */
+    /* ===== Product card: split preview + Gumroad side-by-side (fixes tall/clipped layout) ===== */
     .product-card{
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -59,7 +60,7 @@
       background: var(--card);
     }
     .product-card .pc-top{
-      padding: 14px 14px 10px 14px;
+      padding: 14px;
       border-bottom: 1px solid var(--border);
     }
     .product-card .pc-title{
@@ -71,35 +72,67 @@
       margin: 0;
       opacity: 0.85;
     }
-    .product-card .pc-media{
-      padding: 12px 14px 0 14px;
+
+    /* NEW: inner split */
+    .pc-split{
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;   /* give Gumroad a bit more width */
+      gap: 12px;
+      padding: 14px;
+      align-items: start;
+    }
+    @media (max-width: 900px){
+      .pc-split{ grid-template-columns: 1fr; }
+    }
+
+    /* Preview column */
+    .preview-box{
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) - 2px);
+      background: var(--card);
+      overflow: hidden;
+    }
+    .preview-box .preview-head{
+      padding: 10px 10px 8px 10px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 800;
+    }
+    .preview-media{
+      background: #fff;
+      padding: 10px;
     }
     .sample-page{
       width: 100%;
-      height: auto;
-      border-radius: calc(var(--radius) - 2px);
+      height: 340px;              /* IMPORTANT: caps height so the card fits */
+      object-fit: contain;        /* keep the whole page visible */
+      display: block;
+      border-radius: 10px;
       border: 1px solid var(--border);
       background: #fff;
-      display: block;
     }
-    .sample-caption{
-      margin: 10px 0 12px 0;
+    .preview-caption{
+      padding: 10px;
       font-size: 0.92rem;
     }
 
-    /* Buy area stays visually attached to the sample image */
-    .buy-area{
-      padding: 0 14px 14px 14px;
-    }
-    .gumroad-embed{
+    /* Gumroad column */
+    .buy-box{
       border: 1px solid var(--border);
       border-radius: calc(var(--radius) - 2px);
-      overflow: hidden;
       background: var(--card);
-      min-height: 320px; /* smaller so it doesn't look like a giant empty slab */
+      overflow: hidden;
+      min-height: 340px;          /* matches image height so the split looks tidy */
+    }
+    .buy-box .buy-head{
+      padding: 10px 10px 8px 10px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 800;
+    }
+    .buy-inner{
+      padding: 10px;
     }
 
-    /* Bullets spacing */
+    /* ===== Bullet list spacing ===== */
     .bullets{ margin: 0 0 var(--space-3) 0; padding-left: 1.25em; }
     .bullets li{ margin: 0 0 var(--space-2) 0; line-height: var(--lh); }
     .bullets li:last-child{ margin-bottom: 0; }
@@ -199,11 +232,7 @@
 
         <!-- Right column: photo + signup -->
         <div>
-          <img
-            class="hero-photo"
-            src="assets/logy.png"
-            alt="Langcos Logo"
-          />
+          <img class="hero-photo" src="assets/logy.png" alt="Langcos Logo" />
 
           <div class="box" id="signup" style="margin-top:14px;">
             <p class="muted" style="margin:0 0 12px 0;">
@@ -214,14 +243,10 @@
             <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1766132");</style>
             <style type="text/css">
               .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
-              .sr-only {
-                position: absolute; width: 1px; height: 1px; padding: 0; margin: 0;
-                overflow: hidden; clip: rect(0,0,0,0); border: 0;
-              }
+              .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
               .ml-form-embedSubmitLoad:after {
                 content: " "; display: block; width: 11px; height: 11px; margin: 1px;
-                border-radius: 50%; border: 4px solid #fff;
-                border-color: #ffffff #ffffff #ffffff transparent;
+                border-radius: 50%; border: 4px solid #fff; border-color: #ffffff #ffffff #ffffff transparent;
                 animation: ml-form-embedSubmitLoad 1.2s linear infinite;
               }
               @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -234,7 +259,8 @@
                 background-color: #f6f6f6; border-width: 0px; border-color: transparent; border-radius: 4px; border-style: solid;
                 box-sizing: border-box; display: inline-block !important; margin: 0; padding: 0; position: relative;
               }
-              #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 400px; width: 100%; }
+              /* IMPORTANT: don't force a fixed 400px wrapper on narrow columns */
+              #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 520px; width: 100%; }
               #mlb2-35270602.ml-form-embedContainer .ml-form-align-center { text-align: center; }
               #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
               #mlb2-35270602.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { padding: 20px 20px 0 20px; }
@@ -338,48 +364,55 @@
           </p>
         </div>
 
-        <!-- Right: combined sample + buy card (looks cohesive, not cramped) -->
+        <!-- Right: reorganized product card (preview + gumroad side-by-side) -->
         <div class="product-card">
           <div class="pc-top">
-            <p class="pc-title">Preview a sample page</p>
-            <p class="muted pc-sub">This is a representative page from the guide—clarity, structure, and worked detail.</p>
+            <p class="pc-title">Preview + purchase</p>
+            <p class="muted pc-sub">A sample page on the left, and the Gumroad checkout on the right—so it fits without becoming a tall scroll.</p>
           </div>
 
-          <div class="pc-media">
-            <img
-              class="sample-page"
-              src="assets/quantummechanicssamplepage.png"
-              alt="Sample page from Langcos Essentials of Quantum Mechanics"
-              loading="lazy"
-            />
-            <p class="muted sample-caption">
-              <strong>What you’re seeing:</strong> short conceptual framing, a clean derivation, and a fast order-of-magnitude estimate.
-            </p>
-          </div>
-
-          <div class="buy-area">
-            <div class="gumroad-embed">
-              <!-- Option A (recommended): Gumroad product embed.
-                   Replace YOUR_GUMROAD_PRODUCT_URL with the real product URL, e.g. https://langcos.gumroad.com/l/qm-essentials -->
-
-              <!--
-              <script src="https://gumroad.com/js/gumroad-embed.js"></script>
-              <div class="gumroad-product-embed" data-gumroad-product-url="YOUR_GUMROAD_PRODUCT_URL">
-                <a href="YOUR_GUMROAD_PRODUCT_URL">Loading...</a>
+          <div class="pc-split">
+            <!-- Preview -->
+            <div class="preview-box">
+              <div class="preview-head">Sample page</div>
+              <div class="preview-media">
+                <a href="assets/quantummechanicssamplepage.png" target="_blank" rel="noopener noreferrer" style="display:block;">
+                  <img
+                    class="sample-page"
+                    src="assets/quantummechanicssamplepage.png"
+                    alt="Sample page from Langcos Essentials of Quantum Mechanics"
+                    loading="lazy"
+                  />
+                </a>
               </div>
-              -->
+              <div class="muted preview-caption" style="margin:0;">
+                Click to open full size.
+              </div>
+            </div>
 
-              <!-- Placeholder content while you set up Gumroad -->
-              <div style="padding:16px;">
-                <div style="font-weight:800; margin-bottom:6px;">Buy / download (Gumroad)</div>
+            <!-- Gumroad -->
+            <div class="buy-box">
+              <div class="buy-head">Gumroad checkout</div>
+              <div class="buy-inner">
+                <!-- Replace with real embed when ready -->
+                <!--
+                <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+                <div class="gumroad-product-embed" data-gumroad-product-url="YOUR_GUMROAD_PRODUCT_URL">
+                  <a href="YOUR_GUMROAD_PRODUCT_URL">Loading...</a>
+                </div>
+                -->
+
+                <!-- Placeholder -->
+                <div style="font-weight:800; margin-bottom:6px;">Embed goes here</div>
                 <div class="muted" style="margin-bottom:10px;">
-                  Paste your Gumroad embed here so the buy button lives directly under the sample page.
+                  Paste the Gumroad embed code here. This column is sized to keep the page layout clean.
                 </div>
                 <div class="small">
                   Tip: Gumroad provides an embed script + a <code>data-gumroad-product-url</code>.
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
